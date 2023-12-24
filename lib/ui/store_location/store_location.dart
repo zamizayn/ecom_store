@@ -20,11 +20,29 @@ import 'package:uuid/uuid.dart';
 import '../../constants.dart';
 
 class StoreLocationScreen extends StatefulWidget {
-  final desc, phonenumber, filter, catid, restname, pic, deliveryChargeModel, cat;
+  final desc,
+      phonenumber,
+      filter,
+      catid,
+      restname,
+      pic,
+      deliveryChargeModel,
+      cat;
   SectionModel sectionModel;
   VendorModel? vendor;
 
-  StoreLocationScreen({Key? key, this.desc, this.phonenumber, this.catid, this.pic, this.filter, this.restname, this.vendor, required this.sectionModel, this.cat, this.deliveryChargeModel})
+  StoreLocationScreen(
+      {Key? key,
+      this.desc,
+      this.phonenumber,
+      this.catid,
+      this.pic,
+      this.filter,
+      this.restname,
+      this.vendor,
+      required this.sectionModel,
+      this.cat,
+      this.deliveryChargeModel})
       : super(key: key);
 
   @override
@@ -61,7 +79,9 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
     super.initState();
     auth = MyAppState.currentUser!.userID;
     authname = MyAppState.currentUser!.firstName;
-    authpic = MyAppState.currentUser!.photos.isEmpty ? ' ' : MyAppState.currentUser!.photos.first;
+    authpic = MyAppState.currentUser!.photos.isEmpty
+        ? ' '
+        : MyAppState.currentUser!.photos.first;
     print(widget.filter);
     // vendor = widget.vendor;
     //////////////////////////////////////////////
@@ -133,11 +153,13 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
       }
     }
     return Scaffold(
-      backgroundColor: isDarkMode(context) ? Color(COLOR_DARK) : Color(0xFFFFFFFF),
+      backgroundColor:
+          isDarkMode(context) ? Color(COLOR_DARK) : Color(0xFFFFFFFF),
       appBar: AppBar(
         title: Text('Store Location').tr(),
         centerTitle: false,
-        iconTheme: IconThemeData(color: isDarkMode(context) ? Colors.white : Colors.black),
+        iconTheme: IconThemeData(
+            color: isDarkMode(context) ? Colors.white : Colors.black),
       ),
       body: SingleChildScrollView(
           child: Form(
@@ -150,12 +172,19 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Address".tr(),
-                          style: TextStyle(fontSize: 15, fontFamily: "Poppinsl", color: isDarkMode(context) ? Colors.white : Color(0Xff696A75)),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: "Poppinsl",
+                              color: isDarkMode(context)
+                                  ? Colors.white
+                                  : Color(0Xff696A75)),
                         )),
                     Container(
-                      padding: const EdgeInsetsDirectional.only(start: 2, end: 20, bottom: 10),
+                      padding: const EdgeInsetsDirectional.only(
+                          start: 2, end: 20, bottom: 10),
                       child: TextFormField(
-                          controller: mapName1.text.isEmpty ? mapName : mapName1,
+                          controller:
+                              mapName1.text.isEmpty ? mapName : mapName1,
                           // widget.vendor == null ? mapName : null,
                           textAlignVertical: TextAlignVertical.center,
                           textInputAction: TextInputAction.next,
@@ -172,9 +201,15 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                           decoration: InputDecoration(
                             // contentPadding: EdgeInsets.symmetric(horizontal: 24),
                             hintText: 'Address'.tr(),
-                            hintStyle: TextStyle(color: isDarkMode(context) ? Colors.white : Color(0Xff333333), fontSize: 17, fontFamily: "Poppinsm"),
+                            hintStyle: TextStyle(
+                                color: isDarkMode(context)
+                                    ? Colors.white
+                                    : Color(0Xff333333),
+                                fontSize: 17,
+                                fontFamily: "Poppinsm"),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(COLOR_PRIMARY)),
+                              borderSide:
+                                  BorderSide(color: Color(COLOR_PRIMARY)),
                             ),
 
                             enabledBorder: UnderlineInputBorder(
@@ -188,12 +223,20 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Apartment,suite,etc.".tr(),
-                          style: TextStyle(fontSize: 15, fontFamily: "Poppinsl", color: isDarkMode(context) ? Colors.white : Color(0Xff696A75)),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: "Poppinsl",
+                              color: isDarkMode(context)
+                                  ? Colors.white
+                                  : Color(0Xff696A75)),
                         )),
                     Container(
-                        padding: const EdgeInsetsDirectional.only(start: 2, end: 20, bottom: 10),
+                        padding: const EdgeInsetsDirectional.only(
+                            start: 2, end: 20, bottom: 10),
                         child: TextFormField(
-                            controller: mapAddress1.text.isEmpty ? mapAddress : mapAddress1,
+                            controller: mapAddress1.text.isEmpty
+                                ? mapAddress
+                                : mapAddress1,
                             // vendor == null ? mapAddress : null,
                             textAlignVertical: TextAlignVertical.center,
                             textInputAction: TextInputAction.next,
@@ -208,13 +251,20 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.symmetric(horizontal: 24),
                               hintText: 'Apartment,suite,etc.'.tr(),
-                              hintStyle: TextStyle(color: isDarkMode(context) ? Colors.white : Color(0Xff333333), fontSize: 17, fontFamily: "Poppinsm"),
+                              hintStyle: TextStyle(
+                                  color: isDarkMode(context)
+                                      ? Colors.white
+                                      : Color(0Xff333333),
+                                  fontSize: 17,
+                                  fontFamily: "Poppinsm"),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(COLOR_PRIMARY)),
+                                borderSide:
+                                    BorderSide(color: Color(COLOR_PRIMARY)),
                               ),
 
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(0XFFCCD6E2)),
+                                borderSide:
+                                    BorderSide(color: Color(0XFFCCD6E2)),
                                 // borderRadius: BorderRadius.circular(8.0),
                               ),
                             ))),
@@ -223,10 +273,16 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "City".tr(),
-                          style: TextStyle(fontSize: 15, fontFamily: "Poppinsl", color: isDarkMode(context) ? Colors.white : Color(0Xff696A75)),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: "Poppinsl",
+                              color: isDarkMode(context)
+                                  ? Colors.white
+                                  : Color(0Xff696A75)),
                         )),
                     Container(
-                        padding: const EdgeInsetsDirectional.only(start: 2, end: 20, bottom: 10),
+                        padding: const EdgeInsetsDirectional.only(
+                            start: 2, end: 20, bottom: 10),
                         child: TextFormField(
                             controller: city1.text.isEmpty ? city : city1,
                             textAlignVertical: TextAlignVertical.center,
@@ -242,13 +298,20 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.symmetric(horizontal: 24),
                               hintText: 'City'.tr(),
-                              hintStyle: TextStyle(color: isDarkMode(context) ? Colors.white : Color(0Xff333333), fontSize: 17, fontFamily: "Poppinsm"),
+                              hintStyle: TextStyle(
+                                  color: isDarkMode(context)
+                                      ? Colors.white
+                                      : Color(0Xff333333),
+                                  fontSize: 17,
+                                  fontFamily: "Poppinsm"),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(COLOR_PRIMARY)),
+                                borderSide:
+                                    BorderSide(color: Color(COLOR_PRIMARY)),
                               ),
 
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(0XFFCCD6E2)),
+                                borderSide:
+                                    BorderSide(color: Color(0XFFCCD6E2)),
                                 // borderRadius: BorderRadius.circular(8.0),
                               ),
                             ))),
@@ -257,10 +320,16 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "State".tr(),
-                          style: TextStyle(fontSize: 15, fontFamily: "Poppinsl", color: isDarkMode(context) ? Colors.white : Color(0Xff696A75)),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: "Poppinsl",
+                              color: isDarkMode(context)
+                                  ? Colors.white
+                                  : Color(0Xff696A75)),
                         )),
                     Container(
-                        padding: const EdgeInsetsDirectional.only(start: 2, end: 20, bottom: 10),
+                        padding: const EdgeInsetsDirectional.only(
+                            start: 2, end: 20, bottom: 10),
                         child: TextFormField(
                             controller: state1.text.isEmpty ? state : state1,
                             textAlignVertical: TextAlignVertical.center,
@@ -276,13 +345,20 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.symmetric(horizontal: 24),
                               hintText: 'State'.tr(),
-                              hintStyle: TextStyle(color: isDarkMode(context) ? Colors.white : Color(0Xff333333), fontSize: 17, fontFamily: "Poppinsm"),
+                              hintStyle: TextStyle(
+                                  color: isDarkMode(context)
+                                      ? Colors.white
+                                      : Color(0Xff333333),
+                                  fontSize: 17,
+                                  fontFamily: "Poppinsm"),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(COLOR_PRIMARY)),
+                                borderSide:
+                                    BorderSide(color: Color(COLOR_PRIMARY)),
                               ),
 
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(0XFFCCD6E2)),
+                                borderSide:
+                                    BorderSide(color: Color(0XFFCCD6E2)),
                                 // borderRadius: BorderRadius.circular(8.0),
                               ),
                             ))),
@@ -291,12 +367,19 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Country".tr(),
-                          style: TextStyle(fontSize: 15, fontFamily: "Poppinsl", color: isDarkMode(context) ? Colors.white : Color(0Xff696A75)),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: "Poppinsl",
+                              color: isDarkMode(context)
+                                  ? Colors.white
+                                  : Color(0Xff696A75)),
                         )),
                     Container(
-                        padding: const EdgeInsetsDirectional.only(start: 2, end: 20, bottom: 10),
+                        padding: const EdgeInsetsDirectional.only(
+                            start: 2, end: 20, bottom: 10),
                         child: TextFormField(
-                            controller: country1.text.isEmpty ? country : country1,
+                            controller:
+                                country1.text.isEmpty ? country : country1,
                             textAlignVertical: TextAlignVertical.center,
                             textInputAction: TextInputAction.next,
                             // initialValue: vendor == null ? null : add[4],
@@ -309,13 +392,20 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.symmetric(horizontal: 24),
                               hintText: 'Country'.tr(),
-                              hintStyle: TextStyle(color: isDarkMode(context) ? Colors.white : Color(0Xff333333), fontSize: 17, fontFamily: "Poppinsm"),
+                              hintStyle: TextStyle(
+                                  color: isDarkMode(context)
+                                      ? Colors.white
+                                      : Color(0Xff333333),
+                                  fontSize: 17,
+                                  fontFamily: "Poppinsm"),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(COLOR_PRIMARY)),
+                                borderSide:
+                                    BorderSide(color: Color(COLOR_PRIMARY)),
                               ),
 
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Color(0XFFCCD6E2)),
+                                borderSide:
+                                    BorderSide(color: Color(0XFFCCD6E2)),
                                 // borderRadius: BorderRadius.circular(8.0),
                               ),
                             ))),
@@ -325,7 +415,8 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ImageIcon(
-                                AssetImage('assets/images/current_location1.png'),
+                                AssetImage(
+                                    'assets/images/current_location1.png'),
                                 size: 23,
                                 color: Color(COLOR_PRIMARY),
                               ),
@@ -344,16 +435,25 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
                             style: TextStyle(color: Color(COLOR_PRIMARY)),
                           ),
                           onTap: () async {
-                            LocationResult? result = await Navigator.of(context).push(MaterialPageRoute(builder: (context) => PlacePicker(GOOGLE_API_KEY)));
+                            LocationResult? result = await Navigator.of(context)
+                                .push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        PlacePicker(GOOGLE_API_KEY)));
                             if (result != null) {
                               latValue = result.latLng!.latitude;
                               longValue = result.latLng!.longitude;
 
                               mapName1.text = result.name.toString();
-                              mapAddress1.text = result.subLocalityLevel1!.name == null ? result.subLocalityLevel2!.name.toString() : result.subLocalityLevel1!.name.toString();
+                              mapAddress1.text = result
+                                          .subLocalityLevel1!.name ==
+                                      null
+                                  ? result.subLocalityLevel2!.name.toString()
+                                  : result.subLocalityLevel1!.name.toString();
                               city1.text = result.city!.name.toString();
-                              state1.text = '${result.administrativeAreaLevel1!.name.toString()}';
-                              country1.text = '${result.country!.name.toString()}';
+                              state1.text =
+                                  '${result.administrativeAreaLevel1!.name.toString()}';
+                              country1.text =
+                                  '${result.country!.name.toString()}';
                               setState(() {});
                             }
 
@@ -572,58 +672,62 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
             backgroundColor: Color(COLOR_PRIMARY),
           ),
           onPressed: () => {
-            MyAppState.currentUser!.vendorID == ''
-                ? latValue == 0.0 && longValue == 0.0
-                    ? showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (_) {
-                          return AlertDialog(
-                            content: Text('Please select current address using GPS location. Move pin to exact location'.tr()),
-                            actions: [
-                              // FlatButton(
-                              //   onPressed: () => Navigator.pop(
-                              //       context, false), // passing false
-                              //   child: Text('No'),
-                              // ),
-                              TextButton(
-                                onPressed: () {
-                                  hideProgress();
-                                  Navigator.pop(context, true);
-                                }, // passing true
-                                child: Text('OK'.tr()),
-                              ),
-                            ],
-                          );
-                        })
-                    : addStore()
-                : (widget.vendor!.latitude == 0.0 && widget.vendor!.longitude == 0.0 && latValue == 0.0 && longValue == 0.0)
-                    ? showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (_) {
-                          return AlertDialog(
-                            content: Text('Please select current address using GPS location. Move pin to exact location'.tr()),
-                            actions: [
-                              // FlatButton(
-                              //   onPressed: () => Navigator.pop(
-                              //       context, false), // passing false
-                              //   child: Text('No'),
-                              // ),
-                              TextButton(
-                                onPressed: () {
-                                  hideProgress();
-                                  Navigator.pop(context, true);
-                                }, // passing true
-                                child: Text('OK'.tr()),
-                              ),
-                            ],
-                          );
-                        })
-                    : updateStore(add)
+            // MyAppState.currentUser!.vendorID == ''
+            //     ? latValue == 0.0 && longValue == 0.0
+            //         ? showDialog(
+            //             barrierDismissible: false,
+            //             context: context,
+            //             builder: (_) {
+            //               return AlertDialog(
+            //                 content: Text('Please select current address using GPS location. Move pin to exact location'.tr()),
+            //                 actions: [
+            //                   // FlatButton(
+            //                   //   onPressed: () => Navigator.pop(
+            //                   //       context, false), // passing false
+            //                   //   child: Text('No'),
+            //                   // ),
+            //                   TextButton(
+            //                     onPressed: () {
+            //                       hideProgress();
+            //                       Navigator.pop(context, true);
+            //                     }, // passing true
+            //                     child: Text('OK'.tr()),
+            //                   ),
+            //                 ],
+            //               );
+            //             })
+            //         : addStore()
+            //     : (widget.vendor!.latitude == 0.0 && widget.vendor!.longitude == 0.0 && latValue == 0.0 && longValue == 0.0)
+            //         ? showDialog(
+            //             barrierDismissible: false,
+            //             context: context,
+            //             builder: (_) {
+            //               return AlertDialog(
+            //                 content: Text('Please select current address using GPS location. Move pin to exact location'.tr()),
+            //                 actions: [
+            //                   // FlatButton(
+            //                   //   onPressed: () => Navigator.pop(
+            //                   //       context, false), // passing false
+            //                   //   child: Text('No'),
+            //                   // ),
+            //                   TextButton(
+            //                     onPressed: () {
+            //                       hideProgress();
+            //                       Navigator.pop(context, true);
+            //                     }, // passing true
+            //                     child: Text('OK'.tr()),
+            //                   ),
+            //                 ],
+            //               );
+            //             })
+            //         :
+            // updateStore(add)
+            addStore()
           },
           child: Text(
-            MyAppState.currentUser!.vendorID == '' ? 'DONE'.tr() : 'UPDATE'.tr(),
+            MyAppState.currentUser!.vendorID == ''
+                ? 'DONE'.tr()
+                : 'UPDATE'.tr(),
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -652,7 +756,9 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
         var storageRef = (await uploadTask.whenComplete(() {})).ref;
         var downloadUrl = await storageRef.getDownloadURL();
         downloadUrl.toString();
-        GeoFirePoint myLocation = GeoFlutterFire().point(latitude: latValue, longitude: longValue);
+        print('download url is $downloadUrl');
+        // GeoFirePoint myLocation =
+        //     GeoFlutterFire().point(latitude: 0.0, longitude: 0.0);
         VendorModel vendors = VendorModel(
             author: auth,
             authorName: authname,
@@ -661,20 +767,30 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
             categoryTitle: widget.cat,
             section_id: widget.filter,
             createdAt: Timestamp.now(),
-            geoFireData: GeoFireData(geohash: myLocation.hash, geoPoint: GeoPoint(latValue, longValue)),
+            // geoFireData: GeoFireData(
+            //     geohash: myLocation.hash, geoPoint: GeoPoint(0.0, 0.0)),
             description: widget.desc,
             phonenumber: widget.phonenumber,
             reststatus: true,
-            latitude: latValue,
-            longitude: longValue,
-            location: mapName.text + "," + mapAddress.text + "," + city.text + "," + state.text + "," + country.text,
+            latitude: 0.0,
+            longitude: 0.0,
+            location: mapName.text +
+                "," +
+                mapAddress.text +
+                "," +
+                city.text +
+                "," +
+                state.text +
+                "," +
+                country.text,
             photo: downloadUrl,
             dine_in_active: widget.sectionModel.dineInActive!,
             DeliveryCharge: widget.deliveryChargeModel,
             fcmToken: MyAppState.currentUser!.fcmToken,
             title: widget.restname);
         await FireStoreUtils.firebaseCreateNewVendor(vendors);
-        await FireStoreUtils.updateUserCate(MyAppState.currentUser!.userID, widget.filter);
+        await FireStoreUtils.updateUserCate(
+            MyAppState.currentUser!.userID, widget.filter);
 
         print('sending...');
         await hideProgress();
@@ -696,34 +812,45 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
     if (_formKey.currentState?.validate() ?? false) {
       _formKey.currentState!.save();
       await showProgress(context, 'Updating Store...'.tr(), false);
-      query = mapName.text + "," + mapAddress.text + "," + city.text + "," + state.text + "," + country.text;
+      query = mapName.text +
+          "," +
+          mapAddress.text +
+          "," +
+          city.text +
+          "," +
+          state.text +
+          "," +
+          country.text;
       print(query.toString() + "===LAAA");
-      if ((latValue == 0.0 && longValue == 0.0) && (widget.vendor!.latitude == 0.0 && widget.vendor!.longitude == 0.0)) {
-        hideProgress();
-        showDialog(
-            barrierDismissible: false,
-            context: context,
-            builder: (_) {
-              return AlertDialog(
-                content: Text('Please select current address using GPS location. Move pin to exact location'.tr()),
-                actions: [
-                  // FlatButton(
-                  //   onPressed: () => Navigator.pop(
-                  //       context, false), // passing false
-                  //   child: Text('No'),
-                  // ),
-                  TextButton(
-                    onPressed: () {
-                      hideProgress();
-                      Navigator.pop(context, true);
-                    }, // passing true
-                    child: Text('OK'.tr()),
-                  ),
-                ],
-              );
-            });
-        return;
-      }
+      // if ((latValue == 0.0 && longValue == 0.0) &&
+      //     (widget.vendor!.latitude == 0.0 && widget.vendor!.longitude == 0.0)) {
+      //   hideProgress();
+      //   showDialog(
+      //       barrierDismissible: false,
+      //       context: context,
+      //       builder: (_) {
+      //         return AlertDialog(
+      //           content: Text(
+      //               'Please select current address using GPS location. Move pin to exact location'
+      //                   .tr()),
+      //           actions: [
+      //             // FlatButton(
+      //             //   onPressed: () => Navigator.pop(
+      //             //       context, false), // passing false
+      //             //   child: Text('No'),
+      //             // ),
+      //             TextButton(
+      //               onPressed: () {
+      //                 hideProgress();
+      //                 Navigator.pop(context, true);
+      //               }, // passing true
+      //               child: Text('OK'.tr()),
+      //             ),
+      //           ],
+      //         );
+      //       });
+      //   return;
+      // }
       if (latValue != 0) {
         widget.vendor!.latitude = latValue;
       }
@@ -740,14 +867,28 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
         section_id: widget.filter,
         categoryTitle: widget.cat,
         createdAt: Timestamp.now(),
-        geoFireData: GeoFireData(
-            geohash: GeoFlutterFire().point(latitude: widget.vendor!.latitude, longitude: widget.vendor!.longitude).hash, geoPoint: GeoPoint(widget.vendor!.latitude, widget.vendor!.longitude)),
+        // geoFireData: GeoFireData(
+        //     geohash: GeoFlutterFire()
+        //         .point(
+        //             latitude: widget.vendor!.latitude,
+        //             longitude: widget.vendor!.longitude)
+        //         .hash,
+        //     geoPoint:
+        //         GeoPoint(widget.vendor!.latitude, widget.vendor!.longitude)),
         description: widget.desc,
         phonenumber: widget.phonenumber,
         dine_in_active: widget.sectionModel.dineInActive!,
-        location: mapName.text + "," + mapAddress.text + "," + city.text + "," + state.text + "," + country.text,
-        latitude: widget.vendor!.latitude,
-        longitude: widget.vendor!.longitude,
+        location: mapName.text +
+            "," +
+            mapAddress.text +
+            "," +
+            city.text +
+            "," +
+            state.text +
+            "," +
+            country.text,
+        latitude: 0.0,
+        longitude: 0.0,
         photo: downloadUrl ?? widget.pic,
         restaurantCost: widget.vendor!.restaurantCost,
         openDineTime: widget.vendor!.openDineTime,
@@ -760,13 +901,17 @@ class _StoreLocationScreenState extends State<StoreLocationScreen> {
         reviewsSum: widget.vendor!.reviewsSum,
         fcmToken: MyAppState.currentUser!.fcmToken,
         workingHours: widget.vendor != null ? widget.vendor!.workingHours : [],
-        specialDiscount: widget.vendor != null ? widget.vendor!.specialDiscount : [],
-        specialDiscountEnable: widget.vendor != null ? widget.vendor!.specialDiscountEnable : false,
+        specialDiscount:
+            widget.vendor != null ? widget.vendor!.specialDiscount : [],
+        specialDiscountEnable: widget.vendor != null
+            ? widget.vendor!.specialDiscountEnable
+            : false,
       );
       print(latValue.toString() + "===LAT");
       print(longValue.toString() + "===LONG");
       await FireStoreUtils.updateVendor(vendors);
-      await FireStoreUtils.updateUserCate(MyAppState.currentUser!.userID, widget.filter);
+      await FireStoreUtils.updateUserCate(
+          MyAppState.currentUser!.userID, widget.filter);
 
       print('sending...');
       await hideProgress();

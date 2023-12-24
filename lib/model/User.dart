@@ -15,7 +15,6 @@ class User with ChangeNotifier {
 
   bool active;
 
-
   Timestamp lastOnlineTimestamp;
 
   String userID;
@@ -49,21 +48,21 @@ class User with ChangeNotifier {
       this.phoneNumber = '',
       this.lastName = '',
       this.active = true,
-        this.walletAmount = 0.0,
+      this.walletAmount = 0.0,
       lastOnlineTimestamp,
       userBankDetails,
       settings,
       this.fcmToken = '',
-        location,
+      location,
       this.photos = const [],
       this.role = '',
-        this.section_id = '',
-        this.vendorID = ''})
+      this.section_id = '',
+      this.vendorID = ''})
       : this.lastOnlineTimestamp = lastOnlineTimestamp ?? Timestamp.now(),
         this.settings = settings ?? UserSettings(),
         this.userBankDetails = userBankDetails ?? UserBankDetails(),
         this.appIdentifier =
-            'Flutter eMart Store Dashboard ${Platform.operatingSystem}',
+            'Flutter Lelayastar Store Dashboard ${Platform.operatingSystem}',
         this.location = location ?? UserLocation();
 
   String fullName() {
@@ -72,11 +71,14 @@ class User with ChangeNotifier {
 
   factory User.fromJson(Map<String, dynamic> parsedJson) {
     return new User(
-        walletAmount : parsedJson['wallet_amount'] ?? 0.0,
+        walletAmount: parsedJson['wallet_amount'] ?? 0.0,
         email: parsedJson['email'] ?? '',
         firstName: parsedJson['firstName'] ?? '',
         lastName: parsedJson['lastName'] ?? '',
-        active: ((parsedJson.containsKey('active'))?parsedJson['active']:parsedJson['isActive'] )?? false,
+        active: ((parsedJson.containsKey('active'))
+                ? parsedJson['active']
+                : parsedJson['isActive']) ??
+            false,
         lastOnlineTimestamp: parsedJson['lastOnlineTimestamp'],
         phoneNumber: parsedJson['phoneNumber'] ?? '',
         userID: parsedJson['id'] ?? parsedJson['userID'] ?? '',
@@ -86,7 +88,7 @@ class User with ChangeNotifier {
             ? UserLocation.fromJson(parsedJson['location'])
             : UserLocation(),
         photos: parsedJson['photos'] ?? [].cast<dynamic>(),
-        role: parsedJson['role']??'',
+        role: parsedJson['role'] ?? '',
         section_id: parsedJson['section_id'] ?? '',
         vendorID: parsedJson['vendorID'] ?? '',
         userBankDetails: parsedJson.containsKey('userBankDetails')
@@ -101,7 +103,7 @@ class User with ChangeNotifier {
     photos.toList().removeWhere((element) => element == null);
     Map<String, dynamic> json = {
       'email': this.email,
-      'wallet_amount' : this.walletAmount,
+      'wallet_amount': this.walletAmount,
       'firstName': this.firstName,
       'lastName': this.lastName,
       'phoneNumber': this.phoneNumber,
@@ -123,8 +125,10 @@ class User with ChangeNotifier {
         'vendorID': this.vendorID,
       });
     }
-    if(this.section_id.isNotEmpty){
-      json.addAll({'section_id': this.section_id,});
+    if (this.section_id.isNotEmpty) {
+      json.addAll({
+        'section_id': this.section_id,
+      });
     }
     return json;
   }
@@ -152,12 +156,13 @@ class User with ChangeNotifier {
         'vendorID': this.vendorID,
       });
     }
-    if(this.section_id.isNotEmpty){
-      json.addAll({'section_id': this.section_id,});
+    if (this.section_id.isNotEmpty) {
+      json.addAll({
+        'section_id': this.section_id,
+      });
     }
     return json;
   }
-
 }
 
 class UserSettings {
@@ -178,19 +183,17 @@ class UserSettings {
       this.orderUpdates = false,
       this.newArrivals = false,
       this.promotions = false,
-      this.photos=false,
-      this.reststatus =false
-      });
+      this.photos = false,
+      this.reststatus = false});
 
   factory UserSettings.fromJson(Map<dynamic, dynamic> parsedJson) {
     return new UserSettings(
-      pushNewMessages: parsedJson['pushNewMessages'] ?? true,
-      orderUpdates: parsedJson['orderUpdates'] ?? true,
-      newArrivals: parsedJson['newArrivals'] ?? true,
-      promotions: parsedJson['promotions'] ?? true,
-      photos: parsedJson['photos'] ?? true,
-      reststatus: parsedJson['reststatus'] ?? false
-    );
+        pushNewMessages: parsedJson['pushNewMessages'] ?? true,
+        orderUpdates: parsedJson['orderUpdates'] ?? true,
+        newArrivals: parsedJson['newArrivals'] ?? true,
+        promotions: parsedJson['promotions'] ?? true,
+        photos: parsedJson['photos'] ?? true,
+        reststatus: parsedJson['reststatus'] ?? false);
   }
 
   Map<String, dynamic> toJson() {
@@ -199,8 +202,8 @@ class UserSettings {
       'orderUpdates': this.orderUpdates,
       'newArrivals': this.newArrivals,
       'promotions': this.promotions,
-      'photos':this.photos,
-      'reststatus':this.reststatus
+      'photos': this.photos,
+      'reststatus': this.reststatus
     };
   }
 }
@@ -213,23 +216,26 @@ class UserLocation {
   UserLocation({this.latitude = 0.01, this.longitude = 0.01});
 
   factory UserLocation.fromJson(Map<dynamic, dynamic> parsedJson) {
+    double userlat = 0.1, userlog = 0.1;
 
-    double userlat=0.1,userlog=0.1;
-
-    if(parsedJson.containsKey('latitude') && parsedJson['latitude']!=null && parsedJson['latitude']!=''){
-      if(parsedJson['latitude'] is double) {
+    if (parsedJson.containsKey('latitude') &&
+        parsedJson['latitude'] != null &&
+        parsedJson['latitude'] != '') {
+      if (parsedJson['latitude'] is double) {
         userlat = parsedJson['latitude'];
       }
-      if(parsedJson['latitude'] is String) {
+      if (parsedJson['latitude'] is String) {
         userlat = double.parse(parsedJson['latitude']);
       }
     }
 
-    if(parsedJson.containsKey('longitude') && parsedJson['longitude']!=null && parsedJson['longitude']!=''){
-      if(parsedJson['longitude'] is double) {
+    if (parsedJson.containsKey('longitude') &&
+        parsedJson['longitude'] != null &&
+        parsedJson['longitude'] != '') {
+      if (parsedJson['longitude'] is double) {
         userlog = parsedJson['longitude'];
       }
-      if(parsedJson['longitude'] is String) {
+      if (parsedJson['longitude'] is String) {
         userlog = double.parse(parsedJson['longitude']);
       }
     }

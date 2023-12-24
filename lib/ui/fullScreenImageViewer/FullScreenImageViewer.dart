@@ -14,7 +14,7 @@ class FullScreenImageViewer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          brightness: Brightness.dark,
+          
           elevation: 0.0,
           backgroundColor: Colors.black,
           iconTheme: IconThemeData(color: Colors.white),

@@ -242,10 +242,10 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 elevation: 0,
                 actionsIconTheme: IconThemeData(color: Color(COLOR_PRIMARY)),
                 iconTheme: IconThemeData(color: Color(COLOR_PRIMARY)),
-                textTheme: TextTheme(headline6: TextStyle(color: Colors.black, fontSize: 17.0, letterSpacing: 0, fontWeight: FontWeight.w700)),
-                brightness: Brightness.light),
+                
+                ),
             bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white),
-            accentColor: Color(COLOR_PRIMARY),
+            
             primaryColor: Color(COLOR_PRIMARY),
             brightness: Brightness.light),
         darkTheme: ThemeData(
@@ -255,10 +255,10 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 elevation: 0,
                 actionsIconTheme: IconThemeData(color: Color(COLOR_PRIMARY)),
                 iconTheme: IconThemeData(color: Color(COLOR_PRIMARY)),
-                textTheme: TextTheme(headline6: TextStyle(color: Colors.grey[200], fontSize: 17.0, letterSpacing: 0, fontWeight: FontWeight.w700)),
-                brightness: Brightness.dark),
+                
+                ),
             bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.grey.shade900),
-            accentColor: Color(COLOR_PRIMARY),
+            
             primaryColor: Color(COLOR_PRIMARY),
             brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
